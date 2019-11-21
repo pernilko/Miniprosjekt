@@ -86,7 +86,7 @@ test("get partial match from db", done => {
         done();
     }
 
-    newsArticleDao.getIdFromArticle("h", callback);
+    newsArticleDao.getPartialMatch("h", callback);
 });
 
 test("add an article to db", done => {
