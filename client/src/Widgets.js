@@ -133,44 +133,6 @@ export class Card extends Component<{title: React.Node, children: string}>{
     }
 }
 
-export class Search extends Component <{title: React.Node, children?: React.Node, buttonClick: string}> {
-    render(){
-        return(
-            <form>
-                <ul className="nav nav-pills">
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/register">Register article</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/edit">Edit article</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link active" to="/delete">Delete article</Link>
-                    </li>
-                </ul>
-                <div id="legend" align="center" style={{ paddingTop: 20 + 'px', backgroundColor: "#0d3349"}} >
-                    <h3 className="" style={{color:"white"}}>{this.props.title}</h3><br/>
-                </div>
-                <Row>
-                    <column style = {{width: 1600 + 'px', padding: 50 + 'px'}}>
-                        <div className="form-group">
-                            <label htmlFor="exampleFormControlInput1">Header</label>
-                            <input type="header" className="form-control" id="header"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleFormControlInput1">Author</label>
-                            <input type="author" className="form-control" id="author"/>
-                        </div>
-                        <div  className="form-group" align="center">
-                            <Button.Danger  type="submit" className="btn btn-primary" onClick={this.props.buttonClick}>{this.props.title}</Button.Danger>
-                        </div>
-                    </column>
-                </Row>
-            </form>
-        );
-    }
-}
-
 
 
 /**
