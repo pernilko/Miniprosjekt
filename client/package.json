@@ -2,16 +2,23 @@
   "name": "react-state",
   "version": "1.0.0",
   "scripts": {
-    "flow": "flow",
     "postinstall": "node ./Script/enable_babelrc.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "jest"
+  },
+  "jest": {
+    "testRegex": "./tests/.+Test\\.js$",
+    "setupFiles": [
+      "./tests/setup.js"
+    ],
+    "testURL": "http://localhost"
   },
   "dependencies": {
-    "@babel/node": "^7.6.2",
+    "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.6.3",
     "axios": "^0.19.0",
     "babel-jest": "^24.9.0",
@@ -19,16 +26,14 @@
     "bootstrap": "^4.3.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "flow-typed": "^2.6.2",
+    "flow-bin": "^0.112.0",
     "jest": "^24.9.0",
     "jest-enzyme": "^7.1.2",
-    "nodemon": "^1.19.4",
-    "react": "latest",
     "react-bootstrap": "^1.0.0-beta.14",
-    "react-dom": "latest",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.2.0",
-    "react-simplified": "^1.6.1"
+    "react-simplified": "^1.6.1",
+    "socket.io-client": "^2.3.0"
   },
   "browserslist": {
     "production": [
@@ -41,11 +46,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.7.0",
-    "@babel/core": "^7.7.2",
-    "@babel/preset-flow": "^7.0.0",
-    "flow-bin": "^0.112.0"
   }
 }

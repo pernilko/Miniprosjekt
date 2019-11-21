@@ -1,8 +1,8 @@
 //@flow
-//let express = require("express");
+let express = require("express");
 let mysql = require("mysql");
 let app = express();
-//let bodyParser: function = require("body-parser");
+let bodyParser: function = require("body-parser");
 let server = app.listen(8080);
 const NewsArticleDao = require( "../DAO/newsarticledao.js");
 const CommentsDao = require("../DAO/commentsdao.js");
@@ -19,7 +19,7 @@ let pool = mysql.createPool({
 let newsArticleDao = new NewsArticleDao(pool);
 let commentsDao = new CommentsDao(pool);
 
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
