@@ -2,6 +2,7 @@
   "name": "service",
   "version": "1.0.0",
   "scripts": {
+    "flow": "flow",
     "start": "nodemon --exec babel-node src/server.js",
     "test": "jest --detectOpenHandles --forceExit"
   },
@@ -16,19 +17,22 @@
     "testURL": "http://localhost"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.16.3",
-    "flow-bin": "^0.112.0",
+    "flow": "^0.2.3",
     "fs": "0.0.1-security",
     "mysql": "^2.16.0",
     "npm": "^6.13.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
     "@babel/node": "^7.6.3",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-flow": "^7.0.0",
     "babel-jest": "^24.9.0",
+    "flow-bin": "^0.112.0",
     "jest": "^24.9.0",
     "nodemon": "^1.19.4",
     "reload": "^3.0.2"
