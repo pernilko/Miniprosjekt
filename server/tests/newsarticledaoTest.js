@@ -1,3 +1,4 @@
+//@flow
 const newsarticledao = require("../DAO/newsarticledao.js");
 const runsqlfile = require("../DAO/runsqlfile.js");
 let mysql = require("mysql");
