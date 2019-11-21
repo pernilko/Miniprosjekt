@@ -1,0 +1,65 @@
+/* Styling and animation for live news feed*/
+#container {
+    height: 150px;
+    width: 100%;
+    border: 1px solid #333;
+    overflow: hidden;
+    background-color: #0d3349;
+}
+
+#box {
+    height: 180px;
+    width: 150%;
+    margin: 10px -400px;
+    -webkit-animation-name: move;
+    -webkit-animation-duration: 30s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+#box:hover {
+    -webkit-animation-play-state: paused;
+}
+
+@-webkit-keyframes move {
+    0% {
+        margin-left: -150%;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+/* Styling overriding bootstrap css*/
+.card{
+    position:relative;
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-direction:column;
+    flex-direction:column;
+    min-width:0;
+    word-wrap:break-word;
+    background-clip:border-box;
+    border-radius:.25rem
+}
+
+.articleCard img{
+    width: 100%;
+    height: auto;
+}
+
+.card img{
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+}
+
+.newsfeed{
+    margin: 20px;
+}
+
+.navbar-brand:hover{
+    text-decoration:none;
+    background: lightgrey;
+}
+
