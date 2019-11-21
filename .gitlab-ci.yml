@@ -8,5 +8,5 @@ test:
   services:
   - mysql:5 # The JS mysql-library does not yet support the newest mysql protocol
   script:
-  - npm install -g flow-bin && npm install -g flow-typed
-  - cd server && npm install && npm test && flow check src
+  - npm install -g flow-bin
+  - cd server && npm install && npm test && flow check DAO
