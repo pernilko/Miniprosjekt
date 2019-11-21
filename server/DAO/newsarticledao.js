@@ -30,7 +30,7 @@ module.exports = class NewsArticleDao extends Dao {
 
     getPartialMatch(header: string, callback: function){
         super.query(
-            "SELECT * FROM nyhetssaker WHERE  header LIKE '%' ? '%'",[header], callback
+            "SELECT * FROM nyhetssaker WHERE  header LIKE ?",["%"+header+"%"], callback
         );
     }
 

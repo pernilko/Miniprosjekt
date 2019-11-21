@@ -74,7 +74,7 @@ app.get("/article/:header/:author", (req, res) => {
 });
 
 //Get partial match from header
-app.get("/article/:header", (req, res) => {
+app.get("/search/:header", (req, res) => {
     console.log("/article/:header: Got GET-request from client");
     newsArticleDao.getPartialMatch(req.params.header, (status, data) => {
         res.status(status);

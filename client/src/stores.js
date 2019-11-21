@@ -39,7 +39,7 @@ class ArticleStore {
     }
 
     getPartialMatch(header: string){
-        return axios.get<Article>('http://localhost:8080/article/' + header).then(response => this.articles = response.data);
+        return axios.get<Article[]>('http://localhost:8080/search/' + header).then(response => this.articles = response.data);
     }
 
     updateArticle(id: number, content: string, picture: string, category: string) {

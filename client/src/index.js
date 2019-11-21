@@ -41,17 +41,14 @@ class Menu extends Component {
     }
 
     find(){
-
-        articleStore.getPartialMatch(this.search)
-            .then(() => history.push("/search"))
-            .catch((error: Error) => Alert.danger(error.message));
+        history.push("/search/" + this.search)
     }
 }
 
-class SearchResults{
+class SearchResults extends Component <{match: {params: {search: string}}}> {
     render() {
         return(
-        <div className="newsfeed">
+        <div className="searchResults">
             <Row>
                 {articleStore.articles.map(news => (
                     <Column width={3}>
@@ -62,7 +59,13 @@ class SearchResults{
         </div>
         );
     }
+
+    mounted(){
+        articleStore.getPartialMatch(this.props.match.params.search)
+            .catch((error: Error) => Alert.danger(error.message));
+    }
 }
+
 
 
 class LiveFeed extends Component {
@@ -480,7 +483,7 @@ if (root)
                 <Route exact path="/edit" component={findArticle}/>
                 <Route path="/edit/:id" component={editArticle}/>
                 <Route exact path="/delete" component={DeleteArticle}/>
-                <Route exact path="/search" component={SearchResults}/>
+                <Route exact path="/search/:search" component={SearchResults}/>
             </div>
         </HashRouter>,
         root

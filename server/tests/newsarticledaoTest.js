@@ -76,6 +76,19 @@ test("get id from article from db", done => {
     newsArticleDao.getIdFromArticle("header", "Ola Nordmann" , callback);
 });
 
+test("get partial match from db", done => {
+    function callback(status, data) {
+        console.log(
+            "Test callback: status=" + status + ", data=" + JSON.stringify(data)
+        );
+        expect(data.length).toBe(1);
+        expect(data[0].header).toBe("header");
+        done();
+    }
+
+    newsArticleDao.getIdFromArticle("h", callback);
+});
+
 test("add an article to db", done => {
     function callback(status, data) {
         console.log(
@@ -92,6 +105,7 @@ test("add an article to db", done => {
         callback
     );
 });
+
 
 
 test("get newest articles from db", done => {
