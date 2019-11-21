@@ -1,8 +1,8 @@
 //@flow
-let express = require("express");
+//let express = require("express");
 let mysql = require("mysql");
 let app = express();
-let bodyParser: function = require("body-parser");
+//let bodyParser: function = require("body-parser");
 let server = app.listen(8080);
 const NewsArticleDao = require( "../DAO/newsarticledao.js");
 const CommentsDao = require("../DAO/commentsdao.js");
