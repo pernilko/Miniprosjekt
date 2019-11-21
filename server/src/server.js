@@ -19,7 +19,7 @@ let pool = mysql.createPool({
 let newsArticleDao = new NewsArticleDao(pool);
 let commentsDao = new CommentsDao(pool);
 
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
