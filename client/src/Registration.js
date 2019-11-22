@@ -63,7 +63,7 @@ export class RegisterSite extends Component {
                         <div className="form-group">
                             <label htmlFor="exampleFormControlSelect1">Choose degree of importance</label>
                             <select className="form-control" id="importance" value={this.importance} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.importance = Number.parseInt(event.target.value))}>
-                                <option value="2" disabled selected>1 = important, 2= less important</option>
+                                <option value={2} disabled selected>1 = important, 2= less important</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
@@ -98,10 +98,10 @@ export class RegisterSite extends Component {
             Alert.danger("article not registered. You must fill in picture url field to register.")
         }
         if(this.category === ""){
-            Alert.danger("article not registered. You must fill in picture url field to register.")
+            Alert.danger("article not registered. You must fill in category field to register.")
         }
         if(this.importance === 0){
-            Alert.danger("You did not choose a level of importance. Therefore it was automatically set to less important.")
+            Alert.danger("article not registered. You must fill in level of importance field to register")
         }
 
         articleStore
