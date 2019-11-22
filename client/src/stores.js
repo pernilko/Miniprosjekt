@@ -13,6 +13,7 @@ export class Article{
     category: string;
     importance: number;
     rating: number;
+
 }
 
 class ArticleStore {
