@@ -134,8 +134,6 @@ export class Card extends Component<{title: React.Node, children: string}>{
     }
 }
 
-
-
 /**
  * Renders a row using Bootstrap classes
  */

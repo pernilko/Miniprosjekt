@@ -26,7 +26,7 @@ describe('NewsFeed test', () => {
         expect(typeof instance).toEqual('object');
         if (instance) {
             instance.forceUpdate();
-            articleStore.articles= articles;
+            articleStore.articles = articles;
             expect(wrapper.debug()).toMatchSnapshot();
         }
     });
