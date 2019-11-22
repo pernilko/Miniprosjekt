@@ -158,6 +158,17 @@ export class Column extends Component<{ width?: number, right?: boolean, childre
     }
 }
 
+class ButtonChoice extends Component<{ onClick: () => mixed}> {
+    render() {
+        return (
+            <button type="button" className="btn btn-danger" onClick={this.props.onClick}>
+                {this.props.children}
+            </button>
+
+
+        );
+    }
+}
 class ButtonDanger extends Component<{
     onClick: () => mixed, // Any function
         children?: React.Node
@@ -176,4 +187,5 @@ class ButtonDanger extends Component<{
  */
 export class Button {
     static Danger = ButtonDanger;
+    static Choice = ButtonChoice;
 }

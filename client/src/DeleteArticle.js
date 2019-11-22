@@ -61,17 +61,14 @@ export class DeleteArticleDetails extends Component <{match: {params: {id: numbe
     render(){
         let current : Article = articleStore.currentArticle;
         return(
-            <div  style={{height: 80 + '%', marginLeft: 300 + "px", marginRight: 300 + "px"}} className="card">
+            <div style={{height: 80 + '%', marginLeft: 300 + "px", marginRight: 300 + "px", textAlign: "center"}} className="card">
                 <div className="card-body">
                     <h3>Are you sure you want to delete this article</h3>
                     <p> Header: {current.header}, Author: {current.author}</p>
-                    <row style={{margin: 20 + "px"}}>
-                        <Button.Danger  id="yesButton" onClick={this.delete} >Yes</Button.Danger>
-                        <Button.Danger onClick={this.cancel}>No</Button.Danger>
-                    </row>
-
-
-
+                    <div className="btn-group" style={{width: "75%"}}>
+                        <Button.Danger style={{backgroundColor: "green"}} onClick={this.delete}>Yes</Button.Danger>
+                        <Button.Choice style={{backgroundColor: "red"}} onClick={this.cancel}>No</Button.Choice>
+                    </div>
                 </div>
             </div>
         )
