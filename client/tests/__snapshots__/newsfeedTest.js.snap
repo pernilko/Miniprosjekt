@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsFeed test after load 1`] = `
+"<div className=\\"newsfeed\\">
+  <Row>
+    <Column width={3}>
+      <NewsCard id={[undefined]} title={[undefined]} url={[undefined]} />
+    </Column>
+  </Row>
+</div>"
+`;
+
+exports[`NewsFeed test initially 1`] = `
+"<div className=\\"newsfeed\\">
+  <Row />
+</div>"
+`;
