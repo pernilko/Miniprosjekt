@@ -1,5 +1,5 @@
 import {Component} from "react-simplified";
-import {articleStore} from "./stores";
+import {Article, articleStore} from "./stores";
 import {Alert, Column, LiveCard, NewsCard, Row} from "./Widgets";
 import * as React from "react";
 
@@ -31,10 +31,11 @@ export class LiveFeed extends Component {
 
 export class NewsFeed extends Component {
     render(){
+        let articles: Article[] = articleStore.articles;
         return (
             <div className="newsfeed">
                 <Row>
-                    {articleStore.articles.map(news => (
+                    {articles.map(news => (
                         <Column width={3}>
                             <NewsCard key={news.id} id={news.id} title={news.header} url={news.picture}/>
                         </Column>

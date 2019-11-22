@@ -11,7 +11,7 @@ import {RegisterSite} from "./Registration";
 import {Category} from "./Category";
 import {ArticlePage, CommentSection} from "./ArticlePage";
 import {editArticle, findArticle} from "./EditArticle";
-import {DeleteArticle} from "./DeleteArticle";
+import {DeleteArticle, DeleteArticleDetails} from "./DeleteArticle";
 import {SearchResults} from "./Search";
 
 if (process.env.NODE_ENV !== 'production') {
@@ -65,9 +65,10 @@ if (root)
                 <Route exact path="/category/:category" component={Category}/>
                 <Route exact path="/article/:id" component={ArticlePage}/>
                 <Route exact path="/article/:id" component={CommentSection}/>
-                <Route exact path="/edit" component={findArticle}/>
+                <Route path="/edit" component={findArticle}/>
                 <Route path="/edit/:id" component={editArticle}/>
-                <Route exact path="/delete" component={DeleteArticle}/>
+                <Route path="/delete" component={DeleteArticle}/>
+                <Route path="/delete/article/:id" component={DeleteArticleDetails}/>
                 <Route exact path="/search/:search" component={SearchResults}/>
             </div>
         </HashRouter>,

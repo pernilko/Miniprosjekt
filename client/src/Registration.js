@@ -85,6 +85,21 @@ export class RegisterSite extends Component {
         let time = today.getHours() + ":" + today.getMinutes();
         today = date +' '+ time;
 
+        if(this.author === ""){
+            Alert.danger("article not registered. You must fill in author field to register.")
+        }
+        if(this.header === ""){
+            Alert.danger("article not registered. You must fill in header field to register.")
+        }
+        if(this.content === ""){
+            Alert.danger("article not registered. You must fill in article text field to register.")
+        }
+        if(this.picture === ""){
+            Alert.danger("article not registered. You must fill in picture url field to register.")
+        }
+        if(this.importance === ""){
+            Alert.danger("article not registered. You must fill in level of importance field to register.")
+        }
 
         articleStore
             .addArticle(this.author,this.header,this.content,this.picture, this.category,this.importance,today)

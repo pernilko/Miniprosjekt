@@ -1,7 +1,7 @@
 import {Component} from "react-simplified";
 import {Link} from "react-router-dom";
-import {Alert, Button, Row} from "./Widgets";
-import {articleStore} from "./stores";
+import {Alert, Button, Card, Row} from "./Widgets";
+import {Article, articleStore} from "./stores";
 import * as React from "react";
 import { createHashHistory } from 'history';
 const history = createHashHistory();
@@ -40,7 +40,7 @@ export class DeleteArticle extends Component{
                             <input type="author" className="form-control" id="author" value={this.author} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.author = event.target.value)}/>
                         </div>
                         <div  className="form-group" align="center">
-                            <Button.Danger  type="submit" className="btn btn-primary" onClick={this.delete}>Delete article</Button.Danger>
+                            <Button.Danger  type="submit" className="btn btn-primary" onClick={this.confirm}>Delete article</Button.Danger>
                         </div>
                     </column>
                 </Row>
@@ -48,17 +48,50 @@ export class DeleteArticle extends Component{
         );
     }
 
-    delete(){
-
+    confirm(){
         articleStore
             .getIdFromArticle(this.header, this.author)
             .then(id =>(this.id = id))
-            .then(() => {
-                articleStore
-                    .deleteArticle(this.id)
-                    .then(() => history.push('/'), Alert.success("Deletion successful"))
-                    .catch((error: Error) => Alert.danger(error.message))
-            })
+            .then(() => history.push("/delete/article/" + this.id))
             .catch((error: Error) => Alert.danger("Couldn't find article to delete. Make sure your input is correct. " + error.message));
     }
+}
+
+export class DeleteArticleDetails extends Component <{match: {params: {id: number}}}>{
+    render(){
+        let current : Article = articleStore.currentArticle;
+        return(
+            <div  style={{height: 80 + '%', marginLeft: 300 + "px", marginRight: 300 + "px"}} className="card">
+                <div className="card-body">
+                    <h3>Are you sure you want to delete this article</h3>
+                    <p> Header: {current.header}, Author: {current.author}</p>
+                    <row style={{margin: 20 + "px"}}>
+                        <Button.Danger  id="yesButton" onClick={this.delete} >Yes</Button.Danger>
+                        <Button.Danger onClick={this.cancel}>No</Button.Danger>
+                    </row>
+
+
+
+                </div>
+            </div>
+        )
+    }
+
+    mounted(){
+        articleStore.getArticle(this.props.match.params.id)
+            .catch((error: Error) => Alert.danger(error.message));
+    }
+
+    delete(){
+        articleStore
+            .deleteArticle(this.props.match.params.id)
+            .then(() => history.push('/'), Alert.success("Deletion successful"))
+            .catch((error: Error) => Alert.danger(error.message))
+    }
+
+    cancel(){
+        Alert.info("Cancelled delete operation")
+        history.push("/");
+    }
+
 }

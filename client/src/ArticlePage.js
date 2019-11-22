@@ -51,10 +51,9 @@ export class ArticlePage extends Component <{match: {params: {id: number}}}> {
     }
 
     like(){
-        this.cId = this.current.id;
-        console.log(this.cId);
-        articleStore.rateArticle(this.cId)
-            .then(this.mounted())
+        console.log(this.props.match.params.id);
+        articleStore.rateArticle(this.props.match.params.id)
+            .then(window.location.reload())
             .catch((error: Error) => Alert.danger(error.message));
     }
 

@@ -62,21 +62,21 @@ export class editArticle extends Component<{match: {params: {id: number}}}>{
     render(){
         let currentArticle = articleStore.currentArticle;
         return(
-            <div>
-                <form>
+                <form style={{padding: 20 + 'px', width: "75%", borderStyle: "outset", marginLeft: 200 + "px" }} >
+                    <div class="form-group">
                     <row>
                         <h4>Fill in the following to update the article</h4><br/>
                         <div className="form-group">
                             <label htmlFor="exampleFormControlTextarea1">Article Text</label>
-                            <textarea className="form-control" id="text" rows="3" defaultValue={currentArticle.content} value={this.content} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.content = event.target.value)}/>
+                            <textarea className="form-control" id="text" rows="3" defaultValue={currentArticle.content} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.content = event.target.value)}></textarea>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleFormControlInput1">Picture URL</label>
-                            <input type="url" className="form-control" id="url" defaultValue={currentArticle.picture} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.picture = event.target.value)}/>
+                            <input type="url" className="form-control" id="url" defaultValue={currentArticle.picture} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.picture = event.target.value)}></input>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleFormControlSelect1">Choose a category</label>
-                            <select className="form-control" id="category" defaultValue={currentArticle.category} value={this.category} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.category = event.target.value)}>
+                            <select className="form-control" id="category" defaultValue={currentArticle.category} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.category = event.target.value)}>
                                 <option value="Choose a category" disabled selected>Velg kategori</option>
                                 <option value="News">News</option>
                                 <option value="Sport">Sport</option>
@@ -87,8 +87,8 @@ export class editArticle extends Component<{match: {params: {id: number}}}>{
                             <Button.Danger  type="submit" className="btn btn-primary" onClick={this.save}>Save Edit</Button.Danger>
                         </div>
                     </row>
+                    </div>
                 </form>
-            </div>
         );
     }
 
@@ -97,6 +97,16 @@ export class editArticle extends Component<{match: {params: {id: number}}}>{
     }
 
     save(){
+        if(this.content === ""){
+            this.content = articleStore.currentArticle.content;
+        }
+        if(this.picture === ""){
+            this.picture = articleStore.currentArticle.picture;
+        }
+        if(this.category === ""){
+            this.category = articleStore.currentArticle.category;
+        }
+
         articleStore
             .updateArticle(this.props.match.params.id,this.content,this.picture, this.category)
             .then(() => history.push('/'), Alert.success("Update successful!"))

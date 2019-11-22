@@ -21,6 +21,10 @@
     -webkit-animation-play-state: paused;
 }
 
+#yesButton{
+    margin-right: 20px;
+}
+
 @-webkit-keyframes move {
     0% {
         margin-left: -150%;
