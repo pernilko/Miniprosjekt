@@ -60,7 +60,7 @@ export class ArticlePage extends Component <{match: {params: {id: number}}}> {
 
     comment(){
         commentStore.addComment(this.commentText, this.props.match.params.id, this.nickname)
-            .then(CommentSection.mounted())
+            .then(window.location.reload())
             .catch((error: Error) => Alert.danger(error.message));
 
     }
