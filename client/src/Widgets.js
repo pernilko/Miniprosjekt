@@ -1,7 +1,8 @@
 //@flow
 import * as React from 'react';
-import { Component } from 'react-simplified';
 import {Link, NavLink} from 'react-router-dom';
+// $flow-disable-line
+import {Component} from "react-simplified";
 
 /**
  * Renders alert messages using Bootstrap classes.

@@ -1,5 +1,6 @@
 // @flow
-import { sharedComponentData } from 'react-simplified';
+// $flow-disable-line
+import {sharedComponentData} from "react-simplified";
 import axios from 'axios';
 
 export class Article{
@@ -31,11 +32,11 @@ class ArticleStore {
     }
 
     getArticle(id: number){
-        return axios.get<Article>('http://localhost:8080/article/' + id).then(response => this.currentArticle = response.data[0]);
+        return axios.get<Article[]>('http://localhost:8080/article/' + id).then(response => this.currentArticle = response.data[0]);
     }
 
     getIdFromArticle(header: string, author: string){
-        return axios.get<Article>('http://localhost:8080/article/' + header + "/" + author).then(response => response.data[0].id);
+        return axios.get<Article[]>('http://localhost:8080/article/' + header + "/" + author).then(response => response.data[0].id);
     }
 
     getPartialMatch(header: string){
@@ -94,12 +95,12 @@ class CommentStore{
     }
 
     addComment(comment: string, articleId: number, nick: string){
-        return axios.post<void>('http://localhost:8080/comment/' + articleId, {
+        return axios.post('http://localhost:8080/comment/' + articleId, {
             comment: comment,
             articleId: articleId,
             nick: nick
-        }).then(response => response.data);
-
+        }).then(() => {
+        });
     }
 }
 

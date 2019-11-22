@@ -1,6 +1,7 @@
 //@flow
 import ReactDOM from 'react-dom';
 import * as React from 'react';
+// $flow-disable-line
 import { Component } from 'react-simplified';
 import {HashRouter, Route} from 'react-router-dom';
 import {Alert, NavBar} from './Widgets';

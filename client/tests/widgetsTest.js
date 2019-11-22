@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Component } from 'react-simplified';
-import { Alert } from '../src/widgets.js';
+import { Alert } from '../src/Widgets.js';
 import { shallow, mount } from 'enzyme';
 
 describe('Alert tests', () => {
