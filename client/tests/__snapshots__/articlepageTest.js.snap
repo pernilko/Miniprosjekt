@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NewsFeed test after load 1`] = `
+exports[`ArticlePage test after load 1`] = `
 "<div className=\\"articleCard\\" style={{...}}>
   <div className=\\"card-body\\">
     <Row>
@@ -48,7 +48,7 @@ exports[`NewsFeed test after load 1`] = `
 </div>"
 `;
 
-exports[`NewsFeed test initially 1`] = `
+exports[`ArticlePage test initially 1`] = `
 "<div className=\\"articleCard\\" style={{...}}>
   <div className=\\"card-body\\">
     <Row>
