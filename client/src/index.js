@@ -29,7 +29,8 @@ class Menu extends Component {
     search: string = "";
     render() {
         return (
-            <NavBar key="nav" id="navbar" brand="Community" >
+
+            <NavBar key="nav" id="navbar" brand="Community">
                 <NavBar.Link to="/register">Manage articles</NavBar.Link>
                 {categories.map(category => (
                     <NavBar.Link to={"/category/" + category} >{category}</NavBar.Link>

@@ -54,12 +54,6 @@
     height: 250px;
 }
 
-.newsfeed{
+.newsfeed, .searchResults, .categoryFeed{
     margin: 20px;
 }
-
-.navbar-brand:hover{
-    text-decoration:none;
-    background: lightgrey;
-}
-

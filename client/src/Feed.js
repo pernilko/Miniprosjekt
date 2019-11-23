@@ -1,19 +1,19 @@
 import {Component} from "react-simplified";
-import {Article, articleStore} from "./stores";
+import {articleStore} from "./stores";
 import {Alert, Column, LiveCard, NewsCard, Row} from "./Widgets";
 import * as React from "react";
 
 
 export class LiveFeed extends Component {
     render() {
-        let important = articleStore.articles;
+        let important = articleStore.liveFeed;
         return (
             <div id="container">
                 <div id="box">
                     <Row>
                         {important.map(news => (
                             <Column>
-                                <LiveCard key={news.id} title={news.header} time={news.published}/>
+                                <LiveCard key={news.id} title={news.header} id={news.id} time={news.published}/>
                             </Column>
                         ))}
                     </Row>
@@ -31,8 +31,8 @@ export class LiveFeed extends Component {
 
 export class NewsFeed extends Component {
     render(){
-        let articles: Article[] = articleStore.articles;
-        return (
+        let articles = articleStore.articles;
+        return  <>
             <div className="newsfeed">
                 <Row>
                     {articles.map(news => (
@@ -42,7 +42,7 @@ export class NewsFeed extends Component {
                     ))}
                 </Row>
             </div>
-        );
+        </>
     }
 
     mounted() {

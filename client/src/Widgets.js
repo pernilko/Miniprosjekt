@@ -74,7 +74,7 @@ class NavBarLink extends Component<{ exact?: boolean, to: string, children?: Rea
 /**
  * Renders a navigation bar using Bootstrap classes
  */
-export class NavBar extends Component<{ brand?: React.Node, children?: React.Node }> {
+export class NavBar extends Component<{ brand?: React.Node, children?: React.Node, picture: string}> {
     static Link = NavBarLink;
 
     render() {
@@ -107,12 +107,12 @@ export class NewsCard extends Component<{ title: React.Node, children?: React.No
     }
 }
 
-export class LiveCard extends Component<{title: React.Node, children?: React.Node, time: string}>{
+export class LiveCard extends Component<{title: React.Node, children?: React.Node, time: string, id: number}>{
     render(){
         return(
             <div style={{height: 100 +'%', background: '#0d3349', border: 'none'}} className="card" align="center">
                 <div  className="card-body">
-                    <h3><NavLink to={"/article/" + this.props.title} className="card-title"  style={{ color: 'white'}}>{this.props.title}</NavLink></h3>
+                    <h3><NavLink to={"/article/" + this.props.id} className="card-title"  style={{ color: 'white'}}>{this.props.title}</NavLink></h3>
                     <p style={{ color: 'white'}}> {this.props.time}</p>
                     <div className="card-text">{this.props.children}</div>
                 </div>

@@ -36,7 +36,7 @@ export class findArticle extends Component{
                             <input type="author" className="form-control" id="author" value={this.author} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.author = event.target.value)}/>
                         </div>
                         <div  className="form-group" align="center">
-                            <Button.Danger  type="submit" className="btn btn-primary" onClick={this.find}>Save changes</Button.Danger>
+                            <Button.Danger  type="submit" className="btn btn-primary" onClick={this.find}>Find article</Button.Danger>
                         </div>
                     </column>
                 </Row>

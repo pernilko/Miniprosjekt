@@ -31,6 +31,7 @@ export class DeleteArticle extends Component{
                 </div>
                 <Row>
                     <column style = {{width: 1600 + 'px', padding: 50 + 'px'}}>
+                        <p style={{textAlign: "center", fontWeight: "bold"}}>Fill in name of article and name of author corresponding with the article you would like to delete</p>
                         <div className="form-group">
                             <label htmlFor="exampleFormControlInput1">Header</label>
                             <input type="header" className="form-control" id="header" value={this.header} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.header = event.target.value)}/>

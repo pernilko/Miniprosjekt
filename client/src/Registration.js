@@ -11,8 +11,8 @@ export class RegisterSite extends Component {
     content: string = "";
     author: string = "";
     picture: string = "";
-    category: string = "";
-    importance: number = 0;
+    category: string = "News";
+    importance: number = 2;
 
 
     render(){
@@ -54,18 +54,18 @@ export class RegisterSite extends Component {
                         <div className="form-group">
                             <label htmlFor="exampleFormControlSelect1">Choose a category</label>
                             <select className="form-control" id="category" value={this.category} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.category = event.target.value)}>
-                                <option value="News" disabled selected>Velg kategori</option>
-                                <option value="News">News</option>
-                                <option value="Sport">Sport</option>
-                                <option value="Entertainment">Entertainment</option>
+                                <option disabled selected>Choose a category</option>
+                                <option>News</option>
+                                <option>Sport</option>
+                                <option>Entertainment</option>
                             </select>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleFormControlSelect1">Choose degree of importance</label>
                             <select className="form-control" id="importance" value={this.importance} onChange={(event: SyntheticInputEvent<HTMLInputElement>) => (this.importance = Number.parseInt(event.target.value))}>
-                                <option value={2} disabled selected>1 = important, 2= less important</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
+                                <option disabled selected>1 = important, 2= less important</option>
+                                <option>1</option>
+                                <option>2</option>
                             </select>
                         </div>
                         <div  className="form-group" align="center">
@@ -82,7 +82,12 @@ export class RegisterSite extends Component {
 
         let today = new Date();
         let date = today.getDate() +'.'+(today.getMonth()+1)+'.'+today.getFullYear();
-        let time = today.getHours() + ":" + today.getMinutes();
+        let min = "" + today.getUTCMinutes();
+        if(min.length === 1){
+            min = "0" + min;
+        }
+        let time = today.getHours() + ":" + min;
+
         today = date +' '+ time;
 
         if(this.author === ""){

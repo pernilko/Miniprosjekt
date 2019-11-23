@@ -4,7 +4,7 @@ import { ArticlePage } from '../src/ArticlePage.js';
 import { shallow, mount } from 'enzyme';
 import {Article, articleStore} from "../src/stores";
 
-describe('NewsFeed test', () => {
+describe('ArticlePage test', () => {
     const wrapper = shallow(<ArticlePage match={{params: {id: 1}}}/>);
 
 

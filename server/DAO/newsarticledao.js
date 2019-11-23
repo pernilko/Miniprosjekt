@@ -10,7 +10,7 @@ module.exports = class NewsArticleDao extends Dao {
 
     getNewest(callback: function) {
         super.query(
-            "SELECT header, published FROM nyhetssaker WHERE importance=1 ORDER BY id DESC LIMIT 5",
+            "SELECT * FROM nyhetssaker WHERE importance=1 ORDER BY id DESC LIMIT 5",
             [],
             callback
         );

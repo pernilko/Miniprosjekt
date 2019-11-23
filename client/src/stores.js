@@ -18,18 +18,20 @@ export class Article{
 
 class ArticleStore {
     articles: Article[] = [];
+    categoryArticles: Article[] = [];
+    liveFeed: Article[] = [];
     currentArticle: Article = new Article();
 
     getArticles() {
-        return axios.get<Article[]>('http://localhost:8080/nyhetssak').then(response => (this.articles = response.data.reverse()));
+        return axios.get<Article[]>('http://localhost:8080/nyhetssak').then(response => (this.articles = response.data));
     }
 
     getCategory(category: string) {
-        return axios.get<Article[]>('http://localhost:8080/nyhetssak/' + category).then(response => this.articles = response.data.reverse());
+        return axios.get<Article[]>('http://localhost:8080/nyhetssak/' + category).then(response => this.categoryArticles = response.data);
     }
 
     getLiveFeed() {
-        return axios.get<Article[]>('http://localhost:8080/livefeed').then(response => this.articles = response.data);
+        return axios.get<Article[]>('http://localhost:8080/livefeed').then(response => this.liveFeed = response.data);
     }
 
     getArticle(id: number){

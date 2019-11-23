@@ -7,14 +7,14 @@ import * as React from "react";
 export class Category extends Component <{match: {params: {category: string}}}>{
 
     render(){
-        let nList = articleStore.articles;
+        let nList = articleStore.categoryArticles;
         return <>
 
             <div className="categoryFeed">
                 <Row>
                     {nList.map(n => (
                         <Column width={3}>
-                            <NewsCard key={n.id} title={n.header} url={n.picture} id={n.id}/>
+                            <NewsCard key={n.id} title={n.header} url={n.picture} id={n.id} />
                         </Column>
                     ))}
                 </Row>
@@ -24,6 +24,9 @@ export class Category extends Component <{match: {params: {category: string}}}>{
 
     mounted() {
         articleStore.getCategory(this.props.match.params.category)
+            .then(() =>
+                articleStore.getArticles().catch((error: Error) => Alert.danger(error.message))
+            )
             .catch((error: Error) => Alert.danger(error.message));
     }
 }
