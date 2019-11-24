@@ -40,6 +40,12 @@ module.exports = class NewsArticleDao extends Dao {
         );
     }
 
+    getLimitedCategory(category: string, callback: function){
+        super.query(
+            "SELECT * FROM nyhetssaker WHERE category = ? LIMIT 3", [category], callback
+        )
+    }
+
     addArticle(json: {author: string, header: string, content: string, published: string, picture: string, category: string, importance: number}, callback: function){
         super.query(
           "INSERT INTO nyhetssaker(author, header, content, published, picture, category, importance, rating) VALUES (?,?,?,?,?,?,?,0)",

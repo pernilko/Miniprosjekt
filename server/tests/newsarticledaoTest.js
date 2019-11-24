@@ -51,7 +51,19 @@ test("get all articles from db", done => {
     newsArticleDao.getAllArticles(callback);
 });
 
-test("get article from category from db", done => {
+test("get articles from category from db", done => {
+    function callback(status, data) {
+        console.log(
+            "Test callback: status=" + status + ", data=" + JSON.stringify(data)
+        );
+        expect(data.length).toBe(0);
+        done();
+    }
+
+    newsArticleDao.getCategory("Entertainment", callback);
+});
+
+test("get three articles from category from db", done => {
     function callback(status, data) {
         console.log(
             "Test callback: status=" + status + ", data=" + JSON.stringify(data)

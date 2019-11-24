@@ -37,10 +37,20 @@ app.get("/nyhetssak", (req, res) => {
         res.json(data);
     });
 });
+
 //Get all news articles by category
 app.get("/nyhetssak/:category", (req, res) => {
     console.log("/nyhetssak/:category: Got GET-request from client ");
     newsArticleDao.getCategory(req.params.category, (status,data) => {
+        res.status(status);
+        res.json(data);
+    });
+});
+
+//Get limited news articles by category
+app.get("/related/:category", (req, res) => {
+    console.log("/nyhetssak/:category: Got GET-request from client ");
+    newsArticleDao.getLimitedCategory(req.params.category, (status,data) => {
         res.status(status);
         res.json(data);
     });

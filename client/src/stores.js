@@ -43,6 +43,10 @@ class ArticleStore {
         return axios.get<Article[]>('http://localhost:8080/nyhetssak/' + category).then(response => this.categoryArticles = response.data);
     }
 
+    getLimitedCategory(category: string){
+        return axios.get<Article[]>('http://localhost:8080/related/' + category).then(response => this.categoryArticles = response.data);
+    }
+
     getLiveFeed() {
         return axios.get<Article[]>('http://localhost:8080/livefeed').then(response => this.liveFeed = response.data);
     }

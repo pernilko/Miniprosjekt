@@ -15,15 +15,15 @@ export class ArticlePage extends Component <{match: {params: {id: number}}}> {
             <div className="articleCard" style={{border: 'none'}}>
                 <div className="card-body">
                     <Row>
-                        <Column width={8}>
+                        <Column width={7}>
                             <img src={current.picture} alt={current.header} title={current.header} width="100%"/>
                         </Column>
-                        <column>
-                            <div className="relevant"  style={{paddingLeft: 50 + 'px'}}>
+                        <column width={1}>
+                            <div className="relevant" style={{marginLeft: '30px'}}>
                                 <h2>Relevant Articles</h2>
                                 {articleStore.categoryArticles.map(article => (
                                     <Row>
-                                        <div className="cards" style={{ width:'100%', height: "20%", padding: '10px'}}>
+                                        <div className="cards" style={{ width:'50%', height: "10%", padding: '5px'}}>
                                             <CardLink key={article.id} title={article.header} children={article.published} id={article.id}/>
                                         </div>
                                     </Row>
@@ -61,7 +61,7 @@ export class ArticlePage extends Component <{match: {params: {id: number}}}> {
     mounted() {
         articleStore.getArticle(this.props.match.params.id)
             .then(() =>
-                articleStore.getCategory(articleStore.currentArticle.category)
+                articleStore.getLimitedCategory(articleStore.currentArticle.category)
                     .catch((error: Error) => Alert.danger(error.message))
             )
             .catch((error: Error) => Alert.danger(error.message))
