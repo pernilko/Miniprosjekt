@@ -48,7 +48,7 @@ class ArticleStore {
     }
 
     getLiveFeed() {
-        return axios.get<Article[]>('http://localhost:8080/livefeed').then(response => this.liveFeed = response.data);
+        return axios.get<Article[]>('http://localhost:8080/livefeed').then(response => this.liveFeed = response.data.reverse());
     }
 
     getArticle(id: number){
