@@ -1,14 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NewsFeed test after load 1`] = `
-"<Fragment>
-  <div className=\\"categoryFeed\\">
-    <Row />
-  </div>
-</Fragment>"
-`;
-
-exports[`NewsFeed test initially 1`] = `
+exports[`Category test after load 1`] = `
 "<Fragment>
   <div className=\\"categoryFeed\\">
     <Row />
