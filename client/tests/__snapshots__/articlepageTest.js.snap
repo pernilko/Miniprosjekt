@@ -4,10 +4,10 @@ exports[`ArticlePage test after load 1`] = `
 "<div className=\\"articleCard\\" style={{...}}>
   <div className=\\"card-body\\">
     <Row>
-      <Column width={8}>
+      <Column width={7}>
         <img src=\\"https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80\\" alt=\\"header\\" title=\\"header\\" width=\\"100%\\" />
       </Column>
-      <column>
+      <column width={1}>
         <div className=\\"relevant\\" style={{...}}>
           <h2>
             Relevant Articles
