@@ -1,6 +1,6 @@
 import {Component} from "react-simplified";
-import {articleStore, commentStore} from "./stores";
-import {Alert, Button, Card, Column, Row} from "./Widgets";
+import {Article, articleStore, commentStore} from "./stores";
+import {Alert, Button, Card, CardLink, Column, LiveCard, NewsCard, Row} from "./Widgets";
 import * as React from "react";
 
 export class ArticlePage extends Component <{match: {params: {id: number}}}> {
@@ -18,6 +18,18 @@ export class ArticlePage extends Component <{match: {params: {id: number}}}> {
                         <Column width={8}>
                             <img src={current.picture} alt={current.header} title={current.header} width="100%"/>
                         </Column>
+                        <column>
+                            <div className="relevant"  style={{paddingLeft: 50 + 'px'}}>
+                                <h2>Relevant Articles</h2>
+                                {articleStore.categoryArticles.map(article => (
+                                    <Row>
+                                        <div className="cards" style={{ width:'100%', height: "20%", padding: '10px'}}>
+                                            <CardLink key={article.id} title={article.header} children={article.published} id={article.id}/>
+                                        </div>
+                                    </Row>
+                                ))}
+                            </div>
+                        </column>
                     </Row>
                     <Column width={6}>
                         <h1>{current.header}</h1>
@@ -25,7 +37,7 @@ export class ArticlePage extends Component <{match: {params: {id: number}}}> {
                         <p style ={{whiteSpace: "pre-line"}}>{current.content}</p>
                     </Column>
                     <Column>
-                        <Button.Danger style={{padding: 40 + 'px'}} type="submit" onClick={this.like}>Like</Button.Danger>
+                        <Button.Danger id="likebutton" style={{padding: 40 + 'px'}} type="submit" onClick={this.like}>Like</Button.Danger>
                         <p>Rating: {current.rating}</p>
                         <form style={{paddingTop: 50 + 'px'}} title="Comments">
                             <div className="form-group">
@@ -47,7 +59,12 @@ export class ArticlePage extends Component <{match: {params: {id: number}}}> {
     }
 
     mounted() {
-        articleStore.getArticle(this.props.match.params.id).catch((error: Error) => Alert.danger(error.message));
+        articleStore.getArticle(this.props.match.params.id)
+            .then(() =>
+                articleStore.getCategory(articleStore.currentArticle.category)
+                    .catch((error: Error) => Alert.danger(error.message))
+            )
+            .catch((error: Error) => Alert.danger(error.message))
     }
 
     like(){
@@ -55,6 +72,7 @@ export class ArticlePage extends Component <{match: {params: {id: number}}}> {
         articleStore.rateArticle(this.props.match.params.id)
             .then(window.location.reload())
             .catch((error: Error) => Alert.danger(error.message));
+
     }
 
     comment(){

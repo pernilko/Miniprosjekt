@@ -4,7 +4,7 @@ const Dao = require("./dao.js");
 module.exports = class NewsArticleDao extends Dao {
     getAllArticles(callback: function){
         super.query(
-          "SELECT * FROM nyhetssaker WHERE importance = 1 ORDER BY rating LIMIT 20", [], callback
+          "SELECT * FROM nyhetssaker WHERE importance = 1 ORDER BY rating DESC LIMIT 20", [], callback
         );
     }
 

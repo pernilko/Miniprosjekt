@@ -102,7 +102,7 @@ app.put("/nyhetssak", (req, res) => {
 });
 
 
-//Search news article
+//Delete news article
 app.delete("/nyhetssak/:id", (req, res) => {
     pool.getConnection((err, connection: function) => {
         console.log("Connected to database");

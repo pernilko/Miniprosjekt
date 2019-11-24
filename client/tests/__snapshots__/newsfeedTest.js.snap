@@ -5,17 +5,9 @@ exports[`NewsFeed test after load 1`] = `
   <div className=\\"newsfeed\\">
     <Row>
       <Column width={3}>
-        <NewsCard id={[undefined]} title={[undefined]} url={[undefined]} />
+        <NewsCard id={1} title=\\"header\\" url=\\"https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80\\" />
       </Column>
     </Row>
-  </div>
-</Fragment>"
-`;
-
-exports[`NewsFeed test initially 1`] = `
-"<Fragment>
-  <div className=\\"newsfeed\\">
-    <Row />
   </div>
 </Fragment>"
 `;

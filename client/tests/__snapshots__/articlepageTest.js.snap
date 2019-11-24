@@ -5,26 +5,41 @@ exports[`ArticlePage test after load 1`] = `
   <div className=\\"card-body\\">
     <Row>
       <Column width={8}>
-        <img src={[undefined]} alt={[undefined]} title={[undefined]} width=\\"100%\\" />
+        <img src=\\"https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80\\" alt=\\"header\\" title=\\"header\\" width=\\"100%\\" />
       </Column>
+      <column>
+        <div className=\\"relevant\\" style={{...}}>
+          <h2>
+            Relevant Articles
+          </h2>
+        </div>
+      </column>
     </Row>
     <Column width={6}>
-      <h1 />
+      <h1>
+        header
+      </h1>
       <h6>
         Published: 
+        22.11.2019 02:20
         , Author: 
+        Ola Nordmann
         , Category: 
+        Sport
          
       </h6>
       <br />
-      <p style={{...}} />
+      <p style={{...}}>
+        content
+      </p>
     </Column>
     <Column>
-      <ButtonDanger style={{...}} type=\\"submit\\" onClick={[Function: bound like]}>
+      <ButtonDanger id=\\"likebutton\\" style={{...}} type=\\"submit\\" onClick={[Function: bound like]}>
         Like
       </ButtonDanger>
       <p>
         Rating: 
+        0
       </p>
       <form style={{...}} title=\\"Comments\\">
         <div className=\\"form-group\\">
@@ -55,6 +70,13 @@ exports[`ArticlePage test initially 1`] = `
       <Column width={8}>
         <img src={[undefined]} alt={[undefined]} title={[undefined]} width=\\"100%\\" />
       </Column>
+      <column>
+        <div className=\\"relevant\\" style={{...}}>
+          <h2>
+            Relevant Articles
+          </h2>
+        </div>
+      </column>
     </Row>
     <Column width={6}>
       <h1 />
@@ -68,7 +90,7 @@ exports[`ArticlePage test initially 1`] = `
       <p style={{...}} />
     </Column>
     <Column>
-      <ButtonDanger style={{...}} type=\\"submit\\" onClick={[Function: bound like]}>
+      <ButtonDanger id=\\"likebutton\\" style={{...}} type=\\"submit\\" onClick={[Function: bound like]}>
         Like
       </ButtonDanger>
       <p>

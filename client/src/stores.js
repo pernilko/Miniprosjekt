@@ -14,12 +14,25 @@ export class Article{
     importance: number;
     rating: number;
 
+    constructor( id: number, author: string, header: string, content: string, published: string, picture: string, category: string, importance: number, rating: number){
+        this.id = id;
+        this.author = author;
+        this.header = header;
+        this.content = content;
+        this.published = published;
+        this.picture = picture;
+        this.category = category;
+        this.importance = importance;
+        this.rating = rating;
+    }
+
 }
 
 class ArticleStore {
     articles: Article[] = [];
     categoryArticles: Article[] = [];
     liveFeed: Article[] = [];
+    // $flow-disable-line
     currentArticle: Article = new Article();
 
     getArticles() {

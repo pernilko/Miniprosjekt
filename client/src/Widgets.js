@@ -93,7 +93,7 @@ export class NavBar extends Component<{ brand?: React.Node, children?: React.Nod
 /**
  * Renders an information card using Bootstrap classes
  */
-export class NewsCard extends Component<{ title: React.Node, children?: React.Node, url: string, id: number }> {
+export class NewsCard extends Component<{ title: React.Node, children?: React.Node, url?: string, id: number }> {
     render() {
         return (
             <div  style={{height: 100 + '%', border: 'none'}} className="card">
@@ -128,6 +128,19 @@ export class Card extends Component<{title: React.Node, children: string}>{
                 <div className="card-body">
                     <h3>{this.props.title}</h3>
                     <p>Skrevet av: {this.props.children} </p>
+                </div>
+            </div>
+        );
+    }
+}
+
+export class CardLink extends Component<{title: React.Node, children: string, id: number}>{
+    render(){
+        return(
+            <div  style={{height: 80 + '%'}} className="card">
+                <div className="card-body">
+                    <NavLink to={"/article/" + this.props.id}><h3>{this.props.title}</h3></NavLink>
+                    <p>{this.props.children} </p>
                 </div>
             </div>
         );

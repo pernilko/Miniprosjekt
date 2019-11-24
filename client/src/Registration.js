@@ -82,7 +82,7 @@ export class RegisterSite extends Component {
 
         let today = new Date();
         let date = today.getDate() +'.'+(today.getMonth()+1)+'.'+today.getFullYear();
-        let min = "" + today.getUTCMinutes();
+        let min = "" + today.getMinutes();
         if(min.length === 1){
             min = "0" + min;
         }

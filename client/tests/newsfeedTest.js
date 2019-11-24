@@ -11,10 +11,9 @@ describe('NewsFeed test', () => {
     it('initially', () => {
         let instance = NewsFeed.instance();
         expect(typeof instance).toEqual('object');
-        jest.spyOn(articleStore, 'getArticles').mockResolvedValue([]);
-        wrapper.update();
-        if (instance) expect(wrapper.debug()).toMatchSnapshot();
+        if (instance) expect(articleStore.articles).toEqual([]);
     });
+
 
     it('after load', () => {
         // $flow-disable-line

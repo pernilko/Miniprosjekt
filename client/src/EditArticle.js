@@ -49,6 +49,7 @@ export class findArticle extends Component{
             .getIdFromArticle(this.header, this.author)
             .then(id =>(this.id = id))
             .then(() => history.push("/edit/" + this.id))
+            .then(() => window.location.reload())
             .catch((error: Error) => Alert.danger("Article not found! Make sure you are spelling the title and author name correctly"))
     }
 }
@@ -93,7 +94,9 @@ export class editArticle extends Component<{match: {params: {id: number}}}>{
     }
 
     mounted(){
-        articleStore.getArticle(this.props.match.params.id).catch((error: Error) => Alert.danger(error.message));
+        articleStore.getArticle(this.props.match.params.id)
+            .catch((error: Error) => Alert.danger(error.message));
+
     }
 
     save(){
@@ -110,6 +113,7 @@ export class editArticle extends Component<{match: {params: {id: number}}}>{
         articleStore
             .updateArticle(this.props.match.params.id,this.content,this.picture, this.category)
             .then(() => history.push('/'), Alert.success("Update successful!"))
+            .then(() => window.location.reload())
             .catch((error: Error) => Alert.danger(error.message));
     }
 }

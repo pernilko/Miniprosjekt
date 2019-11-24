@@ -9,7 +9,7 @@ import { createHashHistory } from 'history';
 import {LiveFeed, NewsFeed} from "./Feed";
 import {RegisterSite} from "./Registration";
 import {Category} from "./Category";
-import {ArticlePage, CommentSection} from "./ArticlePage";
+import {ArticlePage, CommentSection, RelevantArticles} from "./ArticlePage";
 import {editArticle, findArticle} from "./EditArticle";
 import {DeleteArticle, DeleteArticleDetails} from "./DeleteArticle";
 import {SearchResults} from "./Search";
